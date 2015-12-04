@@ -233,5 +233,20 @@ namespace MySQLAPI
             _connectionstring = string.Format("Server={0}; Port={1}; Uid={3}; Pwd={4};", _server, _port, _userName, _password);
         }
 
+        public void CreateDatabase(string dataBaseName)
+        {
+            SendString("CREATE DATABASE " + dataBaseName + ";");
+        }
+
+        public void DeleteDatabase(string dataBaseName)
+        {
+            SendString("DROP DATABASE " + dataBaseName);
+        }
+
+        public void DeleteTable(string tableName)
+        {
+            SendString("DROP TABLE " + tableName);
+        }
+
     }
 }
